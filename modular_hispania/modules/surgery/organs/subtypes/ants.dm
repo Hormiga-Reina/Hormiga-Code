@@ -32,7 +32,7 @@
 	slot = "plasmavessel"
 	alien_powers = list(/obj/effect/proc_holder/spell/alien_spell/plant_weeds, /obj/effect/proc_holder/spell/touch/alien_spell/transfer_plasma)
 
-	var/stored_plasma = 0
+	var/stored_plasma = 500
 	var/max_plasma = 500
 	var/heal_rate = 5
 	var/plasma_rate = 10
@@ -98,7 +98,7 @@
 	M.update_plasma_display(M)
 
 
-/obj/item/organ/internal/ant/acidgland
+/obj/item/organ/internal/alien/acidgland
 	name = "xeno acid gland"
 	icon_state = "acid"
 	parent_organ = "head"
@@ -107,7 +107,7 @@
 	alien_powers = list(/obj/effect/proc_holder/spell/touch/alien_spell/corrosive_acid)
 
 
-/obj/item/organ/internal/ant/hivenode
+/obj/item/organ/internal/alien/hivenode
 	name = "xeno hive node"
 	icon_state = "hivenode"
 	parent_organ = "head"
@@ -116,21 +116,21 @@
 	w_class = WEIGHT_CLASS_TINY
 	alien_powers = list(/obj/effect/proc_holder/spell/alien_spell/whisper)
 
-/obj/item/organ/internal/ant/hivenode/insert(mob/living/carbon/M, special = 0)
+/obj/item/organ/internal/alien/hivenode/insert(mob/living/carbon/M, special = 0)
 	..()
 	M.faction |= "alien"
 	M.add_language("Hivemind")
 	M.add_language("Xenomorph")
 	ADD_TRAIT(M, TRAIT_XENO_IMMUNE, "xeno immune")
 
-/obj/item/organ/internal/ant/hivenode/remove(mob/living/carbon/M, special = 0)
+/obj/item/organ/internal/alien/hivenode/remove(mob/living/carbon/M, special = 0)
 	M.faction -= "alien"
 	M.remove_language("Hivemind")
 	M.remove_language("Xenomorph")
 	REMOVE_TRAIT(M, TRAIT_XENO_IMMUNE, "xeno immune")
 	. = ..()
 
-/obj/item/organ/internal/ant/neurotoxin
+/obj/item/organ/internal/alien/neurotoxin
 	name = "xeno neurotoxin gland"
 	icon_state = "neurotox"
 	parent_organ = "head"
@@ -138,7 +138,7 @@
 	origin_tech = "biotech=5;combat=5"
 	alien_powers = list(/obj/effect/proc_holder/spell/alien_spell/neurotoxin)
 
-/obj/item/organ/internal/ant/resinspinner
+/obj/item/organ/internal/alien/resinspinner
 	name = "xeno resin organ"//...there tiger....
 	parent_organ = "mouth"
 	icon_state = "liver-x"
@@ -146,7 +146,7 @@
 	origin_tech = "biotech=5;materials=4"
 	alien_powers = list(/obj/effect/proc_holder/spell/alien_spell/build_resin)
 
-/obj/item/organ/internal/ant/eggsac
+/obj/item/organ/internal/alien/eggsac
 	name = "xeno egg sac"
 	icon_state = "eggsac"
 	parent_organ = "groin"
